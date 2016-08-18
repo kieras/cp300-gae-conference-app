@@ -1,0 +1,46 @@
+application: <application-id>
+version: 1
+#apiversion: 1
+runtime: java
+threadsafe: true
+
+manual_scaling:
+  instances: 1
+
+#basic_scaling:
+#  max_instances: 4
+#  idle_timeout: 10s
+
+#automatic_scaling:
+#  min_idle_instances: 1
+#  max_idle_instances: 3
+#  min_pending_latency: 15s
+#  max_pending_latency: automatic
+#  max_concurrent_requests: 8
+
+
+
+welcome_files:
+  - homepage.jsp
+
+handlers:
+  - url: /saveprofile
+    servlet: com.google.cloud.training.conference.SaveUserProfile
+    name: SaveUserProfile
+  - url: /homepage
+    jsp: /homepage.jsp
+  - url: /developer
+    jsp: /developer.jsp
+  - url: /listconferences
+    jsp: /listconferences.jsp
+  - url: /scheduleconference
+    jsp: /scheduleconference.jsp
+  - url: /userprofile
+    jsp: /userprofile.jsp
+  - url: /venues
+    jsp: /venues.jsp
+
+web_xml:
+  <system-properties>
+    <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+  </system-properties>
